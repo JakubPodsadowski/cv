@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jakub Podsadowski - CV</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 2em 1em;
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: system-ui, sans-serif;
+    }
+
+    .lang-switcher {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .lang-switcher button {
+      font-size: 1.2rem;
+      padding: 12px 24px;
+      border: none;
+      background-color: #e0e0e0;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.1s;
+    }
+
+    .lang-switcher button:hover {
+      background-color: #d0d0d0;
+      transform: scale(1.03);
+    }
+
+    .lang-switcher button.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 90vh;
+      height: auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .download-link {
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .download-link:hover {
+      background-color: #0056b3;
+    }
+
+    @media (min-width: 768px) {
+      .download-link {
+        font-size: 1.2rem;
+        padding: 16px 32px;
+      }
+
+      .lang-switcher button {
+        font-size: 1.3rem;
+        padding: 14px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button id="plBtn" class="active">Polski</button>
+    <button id="enBtn">English</button>
+  </div>
+
+  <img id="cvImage" src="cv-pl.png" alt="CV Jakub Podsadowski" />
+
+  <a
+    id="downloadBtn"
+    class="download-link"
+    href="cv-pl.pdf"
+    download="JakubPodsadowski-CV-PL.pdf"
+  >
+    Pobierz CV w PDF
+  </a>
+
+  <script>
+    const plBtn = document.getElementById('plBtn');
+    const enBtn = document.getElementById('enBtn');
+    const cvImage = document.getElementById('cvImage');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    plBtn.addEventListener('click', () => {
+      plBtn.classList.add('active');
+      enBtn.classList.remove('active');
+      cvImage.src = 'cv-pl.png';
+      downloadBtn.href = 'cv-pl.pdf';
+      downloadBtn.download = 'JakubPodsadowski-CV-PL.pdf';
+      downloadBtn.textContent = 'Pobierz CV w PDF';
+    });
+
+    enBtn.addEventListener('click', () => {
+      enBtn.classList.add('active');
+      plBtn.classList.remove('active');
+      cvImage.src = 'cv-en.png';
+      downloadBtn.href = 'cv-en.pdf';
+      downloadBtn.download = 'JakubPodsadowski-CV-EN.pdf';
+      downloadBtn.textContent = 'Download CV in PDF';
+    });
+  </script>
+</body>
+</html>
